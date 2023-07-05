@@ -1,7 +1,8 @@
-import 'package:daily_todos/config/provider_config.dart';
-import 'package:daily_todos/model/global_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:daily_todos/config/provider_config.dart';
+import 'package:daily_todos/model/global_model.dart';
 
 void main() {
   runApp(
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final model = Provider.of<GlobalModel>(context);
-    // model.setContext(context);  => is eqivalent this
+    // model.setContext(context);  => is equivalent this
 
     final model = Provider.of<GlobalModel>(context)..setContext(context);
 
@@ -33,8 +34,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-
 
   final String title;
 
