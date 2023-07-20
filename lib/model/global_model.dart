@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:daily_todos/json/theme_bean.dart';
+import 'package:daily_todos/utils/theme_util.dart';
 import 'package:daily_todos/logic/global_logic.dart';
 
 class GlobalModel extends ChangeNotifier {
@@ -8,6 +10,11 @@ class GlobalModel extends ChangeNotifier {
 
   // app name
   String appName = 'Daily Todos';
+
+  ThemeBean currentThemeBean = ThemeBean(
+      themeName: MyTheme.darkTheme,
+      colorBean: ColorBean.fromColor(Colors.grey),
+      themeType: MyTheme.darkTheme);
 
   wGlobalModel() {
     logic = GlobalLogic(this);

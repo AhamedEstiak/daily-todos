@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:daily_todos/json/color_bean.dart';
+import 'package:daily_todos/json/theme_bean.dart';
+
 class ThemeUtil {
   static ThemeUtil? _instance;
 
@@ -10,9 +13,20 @@ class ThemeUtil {
 
   ThemeUtil._internal();
 
-  ThemeData getTheme() {}
+  ThemeData getTheme(ThemeBean themeBean) {
+    return _getThemeData(
+      ColorBean.fromBean(themeBean.colorBean),
+      themeBean.themeType.toString(),
+    );
+  }
 
   ThemeData _getThemeData(Color color, String themeType) {
+    if (themeType == MyTheme.darkTheme) {
+      return ThemeData(
+        brightness: Brightness.dark,
+        appBarTheme: getAppBarTheme(Colors.grey[800]!, Colors.grey),
+      );
+    }
     return ThemeData(
       useMaterial3: true,
       primaryColor: color,
@@ -44,9 +58,12 @@ class ThemeUtil {
       color: bgColor,
       elevation: 0.0,
       iconTheme: IconThemeData(color: iconColor),
-      textTheme: TextTheme(
-        titleLarge: TextStyle(color: iconColor, fontSize: 20),
-      ),
+      titleTextStyle: TextStyle(color: iconColor, fontSize: 20),
     );
   }
+}
+
+class MyTheme {
+  static const String defaultTheme = '';
+  static const String darkTheme = 'dark';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:daily_todos/utils/theme_util.dart';
 import 'package:daily_todos/config/provider_config.dart';
 import 'package:daily_todos/model/global_model.dart';
 
@@ -23,10 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: model.appName,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: ThemeUtil.getInstance()!.getTheme(model.currentThemeBean),
       home: MyHomePage(title: model.appName),
     );
   }
