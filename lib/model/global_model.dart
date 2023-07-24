@@ -12,13 +12,17 @@ class GlobalModel extends ChangeNotifier {
   String appName = 'Daily Todos';
 
   ThemeBean currentThemeBean = ThemeBean(
-      themeName: MyTheme.darkTheme,
-      colorBean: ColorBean.fromColor(Colors.grey),
-      themeType: MyTheme.darkTheme);
+    themeName: MyTheme.darkTheme,
+    colorBean: ColorBean.fromColor(MyThemeColor.darkColor),
+    themeType: MyTheme.darkTheme,
+  );
 
-  wGlobalModel() {
-    logic = GlobalLogic(this);
-  }
+  bool enableSplashAnimation = true;
+
+
+  // wGlobalModel() {
+  //   logic = GlobalLogic(this);
+  // }
 
   void setContext(BuildContext context) {
     if (this.context == null) {

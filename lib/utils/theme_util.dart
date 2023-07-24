@@ -64,6 +64,11 @@ class ThemeUtil {
 }
 
 class MyTheme {
-  static const String defaultTheme = '';
+  static const String defaultTheme = 'purple';
   static const String darkTheme = 'dark';
+}
+
+class MyThemeColor {
+  static const Color defaultColor = Color.fromRGBO(147, 0, 238, 1);
+  static const Color darkColor = Colors.grey;
 }

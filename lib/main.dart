@@ -1,5 +1,7 @@
+import 'package:daily_todos/screens/home/splash_sreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:daily_todos/utils/theme_util.dart';
 import 'package:daily_todos/config/provider_config.dart';
@@ -25,10 +27,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: model.appName,
       theme: ThemeUtil.getInstance()!.getTheme(model.currentThemeBean),
-      home: MyHomePage(title: model.appName),
+      home: _getHomeScreen(),
     );
   }
+
+  Widget _getHomeScreen() {
+    return SplashSreen();
+  }
 }
+
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
