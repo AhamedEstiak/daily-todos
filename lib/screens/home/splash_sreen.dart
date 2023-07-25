@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
-import 'package:daily_todos/model/global_model.dart';
+import 'package:daily_todos/model/all_model.dart';
 import 'package:daily_todos/screens/home/login_screen.dart';
 
 class SplashSreen extends StatelessWidget {
@@ -13,17 +13,20 @@ class SplashSreen extends StatelessWidget {
     final model = Provider.of<GlobalModel>(context);
 
     return Scaffold(
-        body: Container(
+        body: SizedBox(
       child: FlareActor(
         'assets/flrs/todo_splash.flr',
         animation: 'run',
         fit: BoxFit.cover,
         callback: (animation) {
-          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-            builder: (context) {
-              return const LoginScreen();
-            },
-          ), (router) => router == null);
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) {
+                return const LoginScreen();
+              },
+            ),
+            (Route<dynamic> route) => false,
+          );
         },
       ),
     ));

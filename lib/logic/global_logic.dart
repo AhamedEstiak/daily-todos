@@ -8,4 +8,8 @@ class GlobalLogic {
   Future getAppName() async {
     // final appName = await
   }
+
+  Future getCurrentTheme() async {
+
+  }
 }

@@ -11,6 +11,8 @@ class GlobalModel extends ChangeNotifier {
   // app name
   String appName = 'Daily Todos';
 
+  // bool goToLogin;
+
   ThemeBean currentThemeBean = ThemeBean(
     themeName: MyTheme.darkTheme,
     colorBean: ColorBean.fromColor(MyThemeColor.darkColor),
@@ -27,6 +29,11 @@ class GlobalModel extends ChangeNotifier {
   void setContext(BuildContext context) {
     if (this.context == null) {
       this.context = context;
+      Future.wait([
+        logic
+      ]).then((value) {
+        refresh();
+      });
     }
   }
 
