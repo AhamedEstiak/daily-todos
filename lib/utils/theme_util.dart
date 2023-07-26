@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:daily_todos/json/color_bean.dart';
 import 'package:daily_todos/json/theme_bean.dart';
 
 class ThemeUtil {
@@ -12,7 +11,6 @@ class ThemeUtil {
     _instance ??= ThemeUtil._internal();
     return _instance!;
   }
-
 
   ThemeData getTheme(ThemeBean themeBean) {
     return _getThemeData(
@@ -67,6 +65,7 @@ class ThemeUtil {
 class MyTheme {
   static const String defaultTheme = 'purple';
   static const String darkTheme = 'dark';
+  static const String random = 'random';
 }
 
 class MyThemeColor {

@@ -30,7 +30,8 @@ class GlobalModel extends ChangeNotifier {
     if (this.context == null) {
       this.context = context;
       Future.wait([
-        logic
+        logic!.getAppName(),
+        logic!.getCurrentTheme(),
       ]).then((value) {
         refresh();
       });

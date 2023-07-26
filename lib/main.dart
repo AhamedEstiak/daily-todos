@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: model.appName,
-      theme: ThemeUtil.getInstance()!.getTheme(model.currentThemeBean),
+      theme: ThemeUtil.getInstance().getTheme(model.currentThemeBean),
       home: _getHomeScreen(),
     );
   }
