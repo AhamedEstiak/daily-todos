@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'package:daily_todos/json/theme_bean.dart';
@@ -21,18 +23,20 @@ class GlobalModel extends ChangeNotifier {
 
   bool enableSplashAnimation = true;
 
-
-  // wGlobalModel() {
-  //   logic = GlobalLogic(this);
-  // }
+  wGlobalModel() {
+    logic = GlobalLogic(this);
+  }
 
   void setContext(BuildContext context) {
     if (this.context == null) {
       this.context = context;
+      wGlobalModel();
       Future.wait([
-        logic!.getAppName(),
         logic!.getCurrentTheme(),
+        logic!.getAppName(),
+
       ]).then((value) {
+        inspect(value);
         refresh();
       });
     }

@@ -5,12 +5,12 @@ import 'package:daily_todos/json/theme_bean.dart';
 class ThemeUtil {
   static ThemeUtil? _instance;
 
-  ThemeUtil._internal();
-
   static ThemeUtil getInstance() {
     _instance ??= ThemeUtil._internal();
     return _instance!;
   }
+
+  ThemeUtil._internal();
 
   ThemeData getTheme(ThemeBean themeBean) {
     return _getThemeData(

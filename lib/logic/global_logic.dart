@@ -22,7 +22,7 @@ class GlobalLogic {
 
   Future getCurrentTheme() async {
     final theme = await SharedUtil.instance.getString(Keys.currentThemeBean);
-    if (theme == null) return;
+    if (theme == null) return _model.currentThemeBean;
     ThemeBean themeBean = ThemeBean.fromMap(jsonDecode(theme));
     if (themeBean.themeType == _model.currentThemeBean.themeType) {
       return;
@@ -32,5 +32,15 @@ class GlobalLogic {
           Colors.primaries[Random().nextInt(Colors.primaries.length)]);
     }
     _model.currentThemeBean = themeBean;
+  }
+
+  Color getBgInWhite() {
+    final themeType = _model.currentThemeBean.themeType;
+    return themeType == MyTheme.darkTheme ? Colors.grey : Colors.white;
+  }
+
+  Color getBgInDark() {
+    final themeType = _model.currentThemeBean.themeType;
+    return themeType == MyTheme.darkTheme ? Colors.grey[800]! : Colors.white;
   }
 }

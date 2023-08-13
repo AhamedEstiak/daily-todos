@@ -1,12 +1,10 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:daily_todos/config/keys.dart';
-export 'package:daily_todos/config/keys.dart';
+import 'package:daily_todos/constants/keys.dart';
+export 'package:daily_todos/constants/keys.dart';
 
 class SharedUtil {
   static SharedUtil? _instance;
-
-  SharedUtil._internal();
 
   factory SharedUtil() => _getInstance();
 
@@ -14,6 +12,8 @@ class SharedUtil {
     _instance ??= SharedUtil._internal();
     return _instance!;
   }
+
+  SharedUtil._internal();
 
   static SharedUtil get instance => _getInstance();
 

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
 import 'package:daily_todos/model/all_model.dart';
-import 'package:daily_todos/screens/home/login_screen.dart';
+import 'package:daily_todos/config/provider_config.dart';
 
 class SplashSreen extends StatelessWidget {
   const SplashSreen({super.key});
@@ -22,13 +22,17 @@ class SplashSreen extends StatelessWidget {
           Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
               builder: (context) {
-                return const LoginScreen();
+                return getHomeScreen();
               },
             ),
             (Route<dynamic> route) => false,
           );
         },
       ),
-    ));
+    ),);
+  }
+
+  Widget getHomeScreen() {
+    return ProviderConfig.getInstance().getMainScreen();
   }
 }
