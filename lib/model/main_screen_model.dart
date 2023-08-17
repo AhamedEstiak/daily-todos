@@ -9,6 +9,9 @@ class MainScreenModel extends ChangeNotifier {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   int currentAvatarType = CurrrentAvatarType.defaultAvatar;
   String currentAvatarUrl = 'assets/images/icon.png';
+  List tasks = [];
+
+  int currentCardIndex = 0;
 
   late GlobalModel _globalModel;
 

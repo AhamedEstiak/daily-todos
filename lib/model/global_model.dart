@@ -22,6 +22,11 @@ class GlobalModel extends ChangeNotifier {
   );
 
   bool enableSplashAnimation = true;
+  bool isBgGradient = false;
+  bool isBgChangeWithCard = false;
+  bool isCardChangeWithBg = false;
+  bool enableNetPicBgInMainScreen = false;
+  String currentMainScreenBgUrl = '';
 
   wGlobalModel() {
     logic = GlobalLogic(this);
@@ -34,7 +39,6 @@ class GlobalModel extends ChangeNotifier {
       Future.wait([
         logic!.getCurrentTheme(),
         logic!.getAppName(),
-
       ]).then((value) {
         inspect(value);
         refresh();
