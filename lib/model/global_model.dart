@@ -13,7 +13,7 @@ class GlobalModel extends ChangeNotifier {
   // app name
   String appName = 'Daily Todos';
 
-  // bool goToLogin;
+
 
   ThemeBean currentThemeBean = ThemeBean(
     themeName: MyTheme.darkTheme,
@@ -27,6 +27,7 @@ class GlobalModel extends ChangeNotifier {
   bool isCardChangeWithBg = false;
   bool enableNetPicBgInMainScreen = false;
   String currentMainScreenBgUrl = '';
+  bool? goToLogin;
 
   wGlobalModel() {
     logic = GlobalLogic(this);
@@ -39,6 +40,7 @@ class GlobalModel extends ChangeNotifier {
       Future.wait([
         logic!.getCurrentTheme(),
         logic!.getAppName(),
+        logic!.getEnableSplashAnimation(),
       ]).then((value) {
         inspect(value);
         refresh();

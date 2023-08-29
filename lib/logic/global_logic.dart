@@ -7,6 +7,7 @@ import 'package:daily_todos/json/theme_bean.dart';
 import 'package:daily_todos/model/global_model.dart';
 import 'package:daily_todos/utils/shared_util.dart';
 import 'package:daily_todos/utils/theme_util.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class GlobalLogic {
   final GlobalModel _model;
@@ -15,8 +16,8 @@ class GlobalLogic {
 
   Future getAppName() async {
     final appName = await SharedUtil.instance.getString(Keys.appName);
-    if(appName == null) return;
-    if(appName == _model.appName) return;
+    if (appName == null) return;
+    if (appName == _model.appName) return;
     _model.appName = appName;
   }
 
@@ -42,5 +43,12 @@ class GlobalLogic {
   Color getBgInDark() {
     final themeType = _model.currentThemeBean.themeType;
     return themeType == MyTheme.darkTheme ? Colors.grey[800]! : Colors.white;
+  }
+
+  Future getEnableSplashAnimation() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String account = prefs.getString(Keys.account) ?? 'default';
+    _model.enableSplashAnimation =
+        prefs.getBool(Keys.enableSplashAnimation + account) ?? true;
   }
 }

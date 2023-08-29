@@ -6,6 +6,7 @@ import 'package:daily_todos/utils/theme_util.dart';
 import 'package:daily_todos/config/provider_config.dart';
 import 'package:daily_todos/model/all_model.dart';
 import 'package:daily_todos/screens/home/splash_sreen.dart';
+// import 'i10n/localization_intl.dart';
 
 void main() {
   runApp(
@@ -26,12 +27,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: model.appName,
+      localizationsDelegates: const <LocalizationsDelegate<Object>>[
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        // DemoLocalizationsDelegate(),
+      ],
+      supportedLocales: const <Locale>[
+         Locale('bn', 'BN'),
+         Locale('en', 'US'),
+      ],
       theme: ThemeUtil.getInstance().getTheme(model.currentThemeBean),
-      home: getHomeScreen(),
+      home: getHomeScreen(model.goToLogin, model.enableSplashAnimation),
     );
   }
 
-  Widget getHomeScreen() {
-    return SplashSreen();
+  Widget getHomeScreen(bool? goToLogin, bool enableSplashAnimation) {
+    // if(goToLogin == null) return const SizedBox();
+    // if(enableSplashAnimation)
+    return const SplashSreen();
+    // return goToLogin ? ProviderConfig.getInstance().getLoginScreen(isFirst: true) :
+    //   ProviderConfig.getInstance().getMainScreen();
+
   }
 }

@@ -30,15 +30,15 @@ class ProviderConfig {
     );
   }
 
-  // ChangeNotifierProvider<LoginScreenModel> getLoginScreen(
-  //     {bool isFirst = false}) {
-  //   return ChangeNotifierProvider<LoginScreenModel>(
-  //     create: (context) => LoginScreenModel(),
-  //     builder: (context, _) => Builder(
-  //       builder: (BuildContext context) => Consumer<LoginScreenModel>(
-  //         builder: (_, __, ___) => const LoginScreen(),
-  //       ),
-  //     ),
-  //   );
-  // }
+  ChangeNotifierProvider<LoginScreenModel> getLoginScreen(
+      {bool isFirst = false}) {
+    return ChangeNotifierProvider<LoginScreenModel>(
+      create: (context) => LoginScreenModel(),
+      builder: (context, _) => Builder(
+        builder: (BuildContext context) => Consumer<LoginScreenModel>(
+          builder: (_, __, ___) => const LoginScreen(),
+        ),
+      ),
+    );
+  }
 }
