@@ -43,11 +43,10 @@ class MyApp extends StatelessWidget {
   }
 
   Widget getHomeScreen(bool? goToLogin, bool enableSplashAnimation) {
-    // if(goToLogin == null) return const SizedBox();
-    // if(enableSplashAnimation)
-    return const SplashSreen();
-    // return goToLogin ? ProviderConfig.getInstance().getLoginScreen(isFirst: true) :
-    //   ProviderConfig.getInstance().getMainScreen();
+    // if(goToLogin == null) return  Container(color: Colors.amberAccent,);
+    if(enableSplashAnimation) return const SplashSreen();
+    return goToLogin! ? ProviderConfig.getInstance().getLoginScreen(isFirst: true) :
+      ProviderConfig.getInstance().getMainScreen();
 
   }
 }

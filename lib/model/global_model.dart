@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:daily_todos/constants/all_types.dart';
 import 'package:flutter/material.dart';
 
 import 'package:daily_todos/json/theme_bean.dart';
@@ -28,6 +29,8 @@ class GlobalModel extends ChangeNotifier {
   bool enableNetPicBgInMainScreen = false;
   String currentMainScreenBgUrl = '';
   bool? goToLogin;
+  String currentNavHeader = NavHeaderType.meteorShower;
+  String currentNetPicUrl = '';
 
   wGlobalModel() {
     logic = GlobalLogic(this);
@@ -41,6 +44,9 @@ class GlobalModel extends ChangeNotifier {
         logic!.getCurrentTheme(),
         logic!.getAppName(),
         logic!.getEnableSplashAnimation(),
+        logic!.getLoginState(),
+        logic!.getCurrentNavHeader(),
+        logic!.getCurrentNetPicUrl(),
       ]).then((value) {
         inspect(value);
         refresh();

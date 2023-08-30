@@ -51,4 +51,31 @@ class GlobalLogic {
     _model.enableSplashAnimation =
         prefs.getBool(Keys.enableSplashAnimation + account) ?? true;
   }
+
+  Future getLoginState() async {
+    final hasLogged = await SharedUtil.instance.getBoolean(Keys.hasLogged);
+    if(hasLogged == null) return;
+    _model.goToLogin  = !hasLogged;
+  }
+
+  Future getIsBgGradient() async {
+    final isBgGradient = await SharedUtil.instance.getBoolean(Keys.backgroundGradient);
+    if(isBgGradient == null) return;
+    if(isBgGradient == _model.isBgGradient) return;
+    _model.isBgGradient = isBgGradient;
+  }
+
+  Future getCurrentNavHeader() async {
+    final currentNavHeader = await SharedUtil.instance.getString(Keys.currentNavHeader);
+    if(currentNavHeader == null) return;
+    if(currentNavHeader == _model.currentNavHeader) return;
+    _model.currentNavHeader = currentNavHeader;
+  }
+
+  Future getCurrentNetPicUrl() async {
+    final currentNetPicUrl = await SharedUtil.instance.getString(Keys.currentNetPicUrl);
+    if(currentNetPicUrl == null) return;
+    if(currentNetPicUrl == _model.currentNavHeader) return;
+    _model.currentNetPicUrl = currentNetPicUrl;
+  }
 }

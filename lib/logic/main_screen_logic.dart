@@ -107,4 +107,8 @@ class MainScreenLogic {
       fit: BoxFit.cover,
     );
   }
+
+  void onBackgroundTap(GlobalModel globalModel) {
+
+  }
 }
